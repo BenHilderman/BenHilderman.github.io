@@ -1,0 +1,49 @@
+body {
+    font-family: century gothic,arial,helvetica;
+    color: white;
+    font-size: 18px;
+    background: #1876c4;  
+    
+}
+
+nav ul {
+    list-style: none;
+}
+/* Selecting child elements multiple level */
+nav ul a {
+    color:  #baf56e;
+    text-decoration: none;
+}
+
+nav ul a,
+nav ul a:link,
+nav ul a:visited{
+    background: #1768AC;  
+    /* horizontal vertical blur spread color*/
+    box-shadow: -2px 2px 4px 2px black;
+}
+
+nav ul a:hover,
+nav ul a:focus{
+    background: #0099ff;
+}
+
+h1,
+h2,
+footer {
+    background: #1768AC;   
+}
+
+.site-title {
+    color: #baf56e;
+}
+
+.my-image {
+    box-shadow: 0 0 2px 1px black;
+}
+
+/* nth-child selector */
+p:nth-child(odd){
+    /* hex value for color with 6 characters */
+    background-color:  #0099ff;
+}
