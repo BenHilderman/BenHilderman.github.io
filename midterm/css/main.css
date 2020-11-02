@@ -83,7 +83,7 @@ img {
 }
 
 h3 {
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   padding: 0em 0em 0em 0.4em;
   margin-bottom: 0;
 }
@@ -93,8 +93,9 @@ li {
 }
 
 form {
-  width: 775px;
+  width: 40vw;
   height: 410px;
+  transform: translate(0%);
   border: 1px solid black;
   padding: 30px;
   margin: 13px;
@@ -107,17 +108,19 @@ h4 {
 }
 
 .name {
-  width: 765px;
+  transform: translate(0%);
+  width: 40vw;
 }
 
 .email {
-  width: 765px;
+  transform: translate(0%);
+  width: 40vw;
 }
 
 textarea {
-  height: 100px ; 
-  width: 765px;
-  line-height: 5px;
+  height: 100px;
+  width: 40vw;
+  transform: translate(0%)
   }
 
 h5 {
