@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "final-project"
+		},
+		{
+			"path": "midterm"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "final-project"
+	}
+}
