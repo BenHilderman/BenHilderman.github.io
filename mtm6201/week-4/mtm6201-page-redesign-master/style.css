@@ -1,0 +1,120 @@
+/* changed background and border colour, padding for text. */
+body #home {
+	background-color: rgb(255, 255, 255);
+	border: 3px solid rgb(221, 219, 219);
+	padding: 4em;
+}
+
+/* changed background and border colour, padding for text. */
+body #about {
+	background-color: rgb(255, 255, 255);
+	border: 3px solid rgb(221, 219, 219);
+	padding: 4em;
+}
+
+/* changed background and border colour, padding for text. */
+body #contact {
+	background-color: rgb(255, 255, 255);
+	border: 3px solid rgb(221, 219, 219);
+	padding: 4em;
+}
+
+/* changed background colour, padding for text. */
+body {
+	background-color: rgb(221, 219, 219);
+	text-align: justify;
+}
+
+/* font size change, font family change, text is parallelized by adjusting the space between each word */
+body section.home {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 1.35rem;
+	text-align: justify;
+}
+
+/* font size change, font family change, font colour change, text is parallelized by adjusting the space between each word */
+body section.about {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 1.35rem;
+	color: black;
+	text-align: justify;
+}
+
+/* font size change, font family change */
+body section.contact {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 1.35rem;
+}
+
+/* changed background and border colour. */
+body .contact-form {
+	background-color: burlywood;
+	border: 3px solid rgb(221, 219, 219);
+}
+
+/* changed background and border colour. */
+body #nav {
+	background-color: rgb(15, 181, 231);
+	border: 3px solid rgb(0, 0, 0);
+}
+
+/* header (titles for home, about, contact) font size change */
+body .page-title,
+body .section-title {
+	font-size: 2rem;
+}
+
+/* font size change, font family change, bold font (name, email, message) */
+body label {
+	font-size: 1rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+/* font size change, font family change, bold font, font colour change */
+body .nav .nav-link {
+	font-size: 1.5rem;
+	font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+/* when the screen is 760px or lower */
+@media screen and (max-width: 760px) {
+
+    /* font size change for all paragraphs */
+	body section.home,
+	body section.contact,
+	body section.about {
+		font-size: 1rem;
+    }
+
+    /* navigation tab (page header) size change */
+    body #nav {
+		width: fit-content;
+    }
+    
+    /* contact form width changes based on page width */
+	body .contact-form {
+		width: unset;
+    }
+    
+    /* image size change */
+	body .about-image {
+		width: 100px;
+	}
+}
+
+/* when the screen is 760px or higher */
+@media screen and (min-width: 760px) {
+
+    /* navigation tab (page header) size change */
+    body #nav {
+		width: 650px;
+    }
+
+    /* contact form width size change */
+	body .contact-form {
+		width: 650px;
+	}
+}

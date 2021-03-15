@@ -1,0 +1,383 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CSS */
+/* importing downloaded fonts */
+@font-face { font-family: Montserrat-Bold; src: url('../fonts/Montserrat-Bold.ttf'); } 
+@font-face { font-family: Montserrat-Regular; src: url('../fonts/Montserrat-Regular.ttf'); } 
+@font-face { font-family: Montserrat-Thin; src: url('../fonts/Montserrat-Thin.ttf'); } 
+
+/* hours form */
+.hourss {
+	width: 6rem;
+}
+
+/* city form */
+.city {
+	width: 15rem;
+	margin-left: 130px;
+	margin-top: -55px;
+}
+
+/* for desktop sizes */
+@media only screen and (min-width: 768px) {
+
+.calc {
+	margin-top: 40px;
+	border-radius: 15px;
+	margin-left: 25px;
+	background-color: #ff8480;
+	border-color: #ff8480;
+	width: 30rem;
+	height: 3.8rem;
+	font-size: 2rem;
+	color: #ffffff;
+}
+
+.buttonc {
+	margin-left: 400px;
+	margin-top: -98px;
+}
+
+/* form */
+.ssform {
+	position: relative;
+	top: auto;
+	left: auto;
+	width: auto;
+	line-height: 4rem;
+}
+
+/* input boxes in form */
+input {
+	padding-left: 3rem;
+	padding-top: 1rem;
+	padding:1em;
+	border: 1px solid #f4f4f5;
+	border-radius:10px;
+	width:82%;
+	height: 1.1rem;
+	background-color: #f4f4f5;
+	font-size: 18px;
+}
+
+/* form background/area */
+.sForm {
+	margin-top: -392px;
+	margin-right: 130px;
+	flex-wrap: wrap;
+	width: 33rem;
+	height: 35rem;
+	float: right;
+	background-color: #ffffff;
+	filter: drop-shadow(0 1rem 0.9rem rgb(94, 94, 94));
+	border-radius: 20px;
+}
+
+/* main header */
+h1 {
+	font-size: 5rem;
+	color: #333131;
+	line-height: 1.2;
+}
+
+/* subtext main header */
+h2 {
+	font-size: 1.6rem;
+	color: #333131;
+	padding-top: 2rem;
+}
+
+/* footer */
+.sFooter {
+    background-color: #fffd8c;
+    padding-left: 8.67rem;
+	padding-top: 2.5rem;
+	height: 200px;
+}
+
+/* social media icons */
+.icons {
+	float: right;
+	padding-right: 7em;
+	position: initial;
+}
+}
+
+body {
+    background-color: #f7f7ff;
+}
+
+/* form buttons */
+.drive {
+	margin-top: 40px;
+	border-radius: 15px;
+	margin-left: 25px;
+	background-color: #57eeab;
+	border-color: white;
+	width: 30rem;
+	height: 3.8rem;
+	font-size: 2rem;
+	color: #333131;
+}
+
+/* apply now form */
+form {
+	padding-left: 3rem;
+	padding-top: 1rem;
+	border-radius: 10px;
+
+}
+
+/* logo image */
+img {
+    max-width: 7.4rem;
+    padding-left: 8.67rem;
+    padding-top: 0.46rem;
+}
+
+/* header section, background adjustments */
+.header {
+    padding-bottom: 35rem;
+    padding-top: 7rem;
+    padding-left: 10rem;
+	background-image: url('images/bg-image/scooter.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 52rem;
+	background-position-y: 5rem;
+}
+
+/* apply now subtext */
+h4 {
+	font-size: 1.3rem;
+	padding-top: 1rem;
+	padding-left: 2.5rem;
+}
+
+/* form header (apply now) */
+h3 {
+	font-size: 2.5rem;
+	color: #333131;
+	padding-top: 2.5rem;
+	padding-left: 2.5rem;
+}
+
+p {
+	padding-top: 1rem;
+	padding-left: 4rem;
+}
+
+p2 {
+	color: #ff9895;
+}
+
+/* checkbox text */
+.agree {
+	margin-top: -36px;
+	margin-left: 80px;
+	font-size: 18px;
+}
+
+/* checkbox */
+.boxc {
+	margin-top: -125px;
+	margin-left: -280px;
+	font-size: 18px;
+}
+
+h5, h6 {
+	color: #333131;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+h6 {
+	margin-top: 15px;
+}
+
+/* for tablet sizes */
+@media only screen and (max-width: 1280px) and (min-width: 682px) {
+	.calc {
+		margin-top: 40px;
+		border-radius: 15px;
+		margin-left: 25px;
+		background-color: #ff8480;
+		border-color: #ff8480;
+		width: 30rem;
+		height: 3.8rem;
+		font-size: 2rem;
+		color: #ffffff;
+	}
+	.buttonc {
+		margin-left: 400px;
+		margin-top: -98px;
+	}
+	.ssform {
+		position: relative;
+		top: auto;
+		left: auto;
+		width: auto;
+		line-height: 4rem;
+		}
+	
+	input {
+		padding-left: 3rem;
+		padding-top: 1rem;
+		padding:1em;
+		border: 1px solid #f4f4f5;
+		border-radius:10px;
+		width:82%;
+		height: 1.1rem;
+		background-color: #f4f4f5;
+		font-size: 18px;
+	}
+
+	.sForm {
+		margin-top: 350px;
+		margin-right: 130px;
+		flex-wrap: wrap;
+		width: 33rem;
+		height: 35rem;
+		float: right;
+		background-color: #ffffff;
+		filter: drop-shadow(0 1rem 0.9rem rgb(94, 94, 94));
+		border-radius: 20px;
+	}
+	h1 {
+		margin-top: -100px;
+		font-size: 5rem;
+		color: #333131;
+		line-height: 1.2;
+	}
+	
+	h2 {
+		font-size: 1.6rem;
+		color: #333131;
+		padding-top: 2rem;
+	}
+	.sFooter {
+		background-color: #fffd8c;
+		padding-left: 8.67rem;
+		padding-top: 2.5rem;
+		height: 200px;
+		margin-top: 450px;
+	}
+	.icons {
+		margin: auto;
+	}
+}
+/* for mobile sizes */
+@media only screen and (max-width: 682px) {
+	.calc {
+		margin-top: 40px;
+		border-radius: 15px;
+		margin-left: -135px;
+		background-color: #ff8480;
+		border-color: #ff8480;
+		width: 30rem;
+		height: 3.8rem;
+		font-size: 2rem;
+		color: #ffffff;
+	}
+	.buttonc {
+		margin-left: -100;
+		margin-top: -30px;
+	}
+	.ssform {
+		position: relative;
+		top: auto;
+		left: auto;
+		width: auto;
+		line-height: 4rem;
+		}
+	
+	input {
+		padding-left: 3rem;
+		padding-top: 1rem;
+		padding:1em;
+		border: 1px solid #f4f4f5;
+		border-radius:10px;
+		width:82%;
+		height: 1.1rem;
+		background-color: #f4f4f5;
+		font-size: 18px;
+	}
+
+	.sForm {
+		margin-top: 350px;
+		margin-right: -20px;
+		flex-wrap: wrap;
+		width: 33rem;
+		height: 35rem;
+		float: right;
+		background-color: #ffffff;
+		filter: drop-shadow(0 1rem 0.9rem rgb(94, 94, 94));
+		border-radius: 20px;
+	}
+	h1 {
+		margin-top: -100px;
+		font-size: 5rem;
+		color: #333131;
+		line-height: 1.2;
+	}
+	
+	h2 {
+		font-size: 1.6rem;
+		color: #333131;
+		padding-top: 2rem;
+	}
+	.sFooter {
+		background-color: #fffd8c;
+		padding-left: 8.67rem;
+		padding-top: 2.5rem;
+		height: 200px;
+		margin-top: 450px;
+	}
+	.icons {
+		margin-left: auto;
+	}
+}
