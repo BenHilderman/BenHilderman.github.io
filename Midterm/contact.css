@@ -1,0 +1,288 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CSS */
+.top {
+	background-image: url("images/contact-img.svg");
+	height: 70rem;
+	background-repeat: no-repeat;
+	background-position-x: 17em;
+	background-position-y: 33em;
+}
+
+.logo {
+	height: 5rem;
+	padding-left: 10rem;
+}
+
+header {
+	background-color: #3c3b3a;
+	height: 4.7em;
+}
+
+a:link,
+a:active,
+a:hover,
+a:visited {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+
+.contactc {
+	font-weight: bold;
+}
+
+li {
+	list-style: none;
+	float: right;
+	margin: 0 15px;
+	margin-top: 28px;
+	margin-right: 50px;
+	letter-spacing: 0.4px;
+	color: #dcdddb;
+}
+
+html {
+	font-family: 'Raleway';
+	color: white;
+	font-size: 16px;
+	scroll-behavior: smooth;
+}
+
+h1 {
+	color: #3c3b39;
+	font-weight: bold;
+	font-size: 4.6rem;
+	padding-top: 10.5rem;
+	padding-left: 9rem;
+	line-height: 1.2;
+}
+
+h2 {
+	color: #2e2e2d;
+	font-size: 1.5rem;
+	padding-top: 4rem;
+	padding-left: 9rem;
+	line-height: 1.2;
+}
+
+h3 {
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 4.2rem;
+	padding-left: 3rem;
+	padding-top: 2rem;
+}
+
+h4{
+	font-size: 1.5rem;
+	padding-left: 2.5rem;
+	padding-top: 2rem;
+}
+
+h5{
+	font-size: 1.5rem;
+	padding-left: 2.5rem;
+	padding-top: 2rem;
+}
+
+h6{
+	font-size: 1.5rem;
+	padding-left: 2.5rem;
+	padding-top: 2rem;
+}
+
+h7{
+	font-size: 1.5rem;
+	padding-left: 2.5rem;
+	padding-top: 2rem;
+	margin-top: 5rem;
+}
+
+.ibutton {
+	margin-top: 60px;
+	border-radius: 30px;
+	background-color: #3c3b39;
+	border: none;
+	width: 13rem;
+	height: 4rem;
+	font-size: 2.5rem;
+	color: white;
+	font-weight: bold;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+	float: right;
+	margin-right: 40px;
+}
+
+/* hover animation */
+.ibutton:hover {
+	box-shadow: 0 35px 20px -20px rgba(0,0,0,0.2);
+	transform: scale(1.1) translateY(-10px);
+}
+
+h15 {
+	color: #3c3b39;
+	margin-left: 7rem;
+	margin-bottom: 1.2rem;
+	font-weight: bold;
+	font-size: 4.2rem;
+	padding-left: 3rem;
+	padding-top: 2rem;
+}
+
+h8 {
+	color: #3c3b39;
+	font-size: 40px;
+	margin-left: 10rem;
+}
+
+h9 {
+	color: #3c3b39;
+	font-size: 18px;
+	margin-left: 10rem;
+}
+
+h10 {
+	color: #3c3b39;
+	font-size: 18px;
+	margin-left: 10rem;
+}
+
+h11 {
+	color: #3c3b39;
+	font-size: 18px;
+	margin-left: 10rem;
+}
+
+h12 {
+	color: #3c3b39;
+	font-size: 18px;
+	margin-left: 10rem;
+}
+
+h13 {
+	color: #3c3b39;
+	font-size: 18px;
+	margin-left: 10rem;
+}
+
+.ssform {
+	line-height: 4rem;
+}
+
+/* input boxes in form */
+input {
+	padding:1em;
+	border: 1px solid #ffffff;
+	border-radius:30px;
+	width:80%;
+	height: 0.6rem;
+	background-color: #ffffff;
+	font-size: 18px;
+	margin-left: 2rem;
+}
+
+/* form background/area */
+.sForm {
+	margin-top: -950px;
+	margin-right: 130px;
+	flex-wrap: wrap;
+	width: 38rem;
+	height: 50rem;
+	float: right;
+	background-color: #26a683;
+	border-radius: 20px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.message {
+	height: 8rem;
+	border-radius: 10px;
+}
+
+footer {
+	background-color: #333131;
+	margin-top: 70px;
+  }
+
+.bottomarrow {
+	float: right;
+	margin-right: -52rem;
+	margin-top: -46px;
+}
+
+.footer {
+	background-color: #333131;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin-left: 55rem;
+	width: 70rem;
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+  
+.follow {
+	grid-area: follow;
+	grid-row: 1;
+	color: #f7f7ff;
+	font-size: 24px;
+	margin-bottom: 0.6rem;
+	font-weight: normal;
+	width: 100%;
+	margin-left: -2rem;
+}
+
+h14 {
+	margin-left: 48em;
+	margin-top: 5rem;
+	color: white;
+	width: 100%;
+}
+
+iframe {
+	margin-left: 61rem;
+	margin-top: -20rem;
+	width: 50rem;
+	height: 30rem;
+}
