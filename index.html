@@ -50,8 +50,9 @@
          CONTACT ME!
       </h2>
       <section class="sForm">
-         <form>
+         <form action="https://formsubmit.co/benjaminhilderman@gmail.com" method="POST" enctype="multipart/form-data">
             <!-- form to contact me -->
+            <input type="hidden" name="_next" value="https://benhilderman.github.io/index.html">
             <div class="ssform">
                <label for="name"></label>
                <div class="namespace">
@@ -74,12 +75,13 @@
                   <label for="message"></label>
                   <textarea rows="5" cols="50" name="ms" id="message" placeholder="Your Message"></textarea>
                </div>
+               <input type="hidden" name="_captcha" value="false">
+               <div class="first">
+               <button class="cm" type="submit">SUBMIT</button>
+            </div>
             </div>
          </form>
       </section>
-      <div class="first">
-         <a class="cm" href="/index.html">SUBMIT</a>
-      </div>
       <footer>
          <div class="footer" id="footer">
             <section class="icons">

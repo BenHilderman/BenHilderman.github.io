@@ -223,6 +223,22 @@ html {
   text-decoration: none;
 }
 
+button {
+  background-color: rgb(82, 82, 82);
+  color: white;
+  border-radius: 4px;
+  padding: 12px;
+  text-decoration: none;
+  border: none;
+  font-family: "Lato";
+  font-size: 17px;
+}
+
+button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 .first a:hover {
   background-color: #ddd;
   color: black;
