@@ -215,6 +215,10 @@ html {
   padding: 30px;
 }
 
+.iconn {
+  padding-left: 0.2rem;
+}
+
 .first a.cm {
   background-color: rgb(82, 82, 82);
   color: white;
