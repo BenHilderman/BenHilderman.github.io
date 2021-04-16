@@ -261,26 +261,53 @@ html {
   font-family: "Lato";
 }
 
-.videos {
+.images {
   display: block;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
   padding-bottom: 5rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 iframe {
   box-shadow: 5px 4px 10px 0 hsla(0, 0%, 0%, 0.4);
-  margin: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   margin-top: 2rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 @media screen and (max-width: 1000px) {
-  .videos {
+  .images {
     display: block;
     text-align: center;
   }
+}
+
+/* for unnoticeable smooth image transition */
+@media screen and (max-width: 700px) {
+  iframe {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+}
+
+.logos {
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin-top: -5rem;
+  margin-bottom: 5rem;
+  padding-top: 0.4rem;
 }
 
 .title {
@@ -366,7 +393,7 @@ h3 {
 
 .icon {
   padding-left: 1rem;
-  padding-right: 75%;
+  padding-top: 0.25rem;
 }
 
 .copyright {
@@ -402,5 +429,9 @@ h3 {
   }
   textarea {
     width: 25rem;
+  }
+  .msage {
+    margin-top: -4rem;
+    margin-bottom: -1.5rem;
   }
 }

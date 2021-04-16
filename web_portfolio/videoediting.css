@@ -369,7 +369,7 @@ h3 {
 
 .icon {
   padding-left: 1rem;
-  padding-right: 75%;
+  padding-top: 0.25rem;
 }
 
 .copyright {
@@ -382,12 +382,37 @@ h3 {
   padding-top: 0.5rem;
 }
 
+.logos {
+  width: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  margin-top: -5rem;
+  margin-bottom: 5rem;
+  padding-top: 0.4rem;
+}
+
+.row {
+  width: 100rem;
+}
+
 .bottomarrow {
   float: right;
   justify-content: right;
   text-align: right;
   padding-right: 5%;
   position: relative;
+}
+
+/* for unnoticeable smooth video preview transition */
+@media screen and (max-width: 700px) {
+  iframe {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -408,5 +433,9 @@ h3 {
   }
   .iframe {
     width: 20px
+  }
+  .msage {
+    margin-top: -4rem;
+    margin-bottom: -1.5rem;
   }
 }

@@ -410,7 +410,11 @@ h3 {
 
 .icon {
   padding-left: 1rem;
-  padding-right: 75%;
+  padding-top: 0.25rem;
+}
+
+.link {
+  text-decoration: white;
 }
 
 .copyright {
