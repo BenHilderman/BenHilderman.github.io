@@ -423,6 +423,8 @@ h3 {
 
 /* adjusting form input size for mobile */
 
+/* adjusting form input size for mobile */
+
 @media screen and (max-width: 550px) {
   input {
     width: 25rem;
@@ -433,17 +435,105 @@ h3 {
     left: 50%;
     transform: translate(-50%, 0%);
     height: 0.6rem;
-    padding: 1em;
     border: 1px solid #ffffff;
   }
   textarea {
     width: 25rem;
   }
-  .iframe {
-    width: 20px
-  }
   .msage {
     margin-top: -4rem;
     margin-bottom: -1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ve {
+    height: 250px;
+  }
+  .gd {
+    height: 250px;
+  }
+  .grey-overlay {
+    width: 50px;
+  }
+
+  input {
+    width: 23rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 0.6rem;
+    border: 1px solid #ffffff;
+  }
+  textarea {
+    width: 23rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .ve {
+    height: 230px;
+  }
+  .gd {
+    height: 230px;
+  }
+
+  input {
+    width: 21rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 0.6rem;
+    border: 1px solid #ffffff;
+  }
+  textarea {
+    width: 21rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .ve {
+    height: 210px;
+  }
+  .gd {
+    height: 210px;
+  }
+  input {
+    width: 18rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    height: 0.6rem;
+    border: 1px solid #ffffff;
+  }
+  textarea {
+    width: 18rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .ve {
+    height: 190px;
+  }
+  .gd {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .ve {
+    height: 170px;
+  }
+  .gd {
+    height: 170px;
   }
 }
