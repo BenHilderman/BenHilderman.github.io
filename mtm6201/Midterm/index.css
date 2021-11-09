@@ -1,0 +1,590 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* CSS */
+
+
+/* second section */
+
+.second {
+	margin-left: -37.2rem;
+}
+
+
+/* ARC logo */
+
+.logo {
+	height: 5rem;
+	padding-left: 10rem;
+}
+
+
+/* top section */
+
+.top {
+	background-image: url("images/discover.svg");
+	height: 50rem;
+	background-repeat: no-repeat;
+	background-position-x: 51.5em;
+	background-position-y: 5em;
+}
+
+header {
+	background-color: #3c3b3a;
+	height: 4.7em;
+}
+
+a:link,
+a:active,
+a:hover,
+a:visited {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+
+
+/* bold home text in header */
+
+.homec {
+	font-weight: bold;
+}
+
+li {
+	list-style: none;
+	float: right;
+	margin: 0 15px;
+	margin-top: 28px;
+	margin-right: 50px;
+	letter-spacing: 0.4px;
+	color: #dcdddb;
+}
+
+html {
+	font-family: 'Raleway';
+	color: white;
+	font-size: 16px;
+	scroll-behavior: smooth;
+}
+
+h1 {
+	color: #3c3b39;
+	font-weight: bold;
+	font-size: 4.6rem;
+	padding-top: 10.5rem;
+	padding-left: 9rem;
+	line-height: 1.2;
+}
+
+h2 {
+	color: #2e2e2d;
+	font-size: 1.5rem;
+	padding-top: 4rem;
+	padding-left: 9rem;
+	line-height: 1.2;
+}
+
+
+/* Dijanelle Simon SA President */
+
+.simon {
+	height: 180px;
+	border-radius: 50%;
+	margin-bottom: -205px;
+	margin-left: 125px;
+	border: 5px solid rgb(255, 255, 255);
+}
+
+
+/* removing blank space */
+
+.simons {
+	height: 0px;
+}
+
+
+/* third section */
+
+.bottommid {
+	background-color: #3c3b39;
+	color: rgb(255, 255, 255);
+	background-size: 180px;
+	background-position: 8rem 2rem;
+	height: 15rem;
+}
+
+
+/* get started button */
+
+.sbutton {
+	margin-top: 60px;
+	border-radius: 30px;
+	margin-left: 150px;
+	background-color: #26a683;
+	border: none;
+	width: 20rem;
+	height: 3.8rem;
+	font-size: 2.5rem;
+	color: white;
+	font-weight: bold;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+/* hover animation */
+
+.sbutton:hover {
+	box-shadow: 0 35px 20px -20px rgba(0, 0, 0, 0.2);
+	transform: scale(1.1) translateY(-10px);
+}
+
+
+/* sport icons subtext */
+
+.subtext {
+	color: #26a683;
+	margin-left: 70px;
+	padding-left: 5rem;
+	margin-top: 0.5rem;
+}
+
+
+/* rock climbing */
+
+.rc {
+	margin-top: -15.7px;
+	margin-left: 125px;
+}
+
+
+/* Fitness center */
+
+.fc {
+	margin-top: -15.7px;
+	margin-left: 155px;
+}
+
+
+/* basketball */
+
+.bb {
+	margin-top: -15.7px;
+	margin-left: 165px;
+}
+
+h4 {
+	color: black;
+	margin: auto;
+	width: 5%;
+	padding: 10px;
+	margin-top: 130px;
+}
+
+
+/* arrow pointing down */
+
+.arrow {
+	transform: rotate(180deg);
+	margin-left: auto;
+	margin-right: auto;
+	width: 0%;
+}
+
+
+/* arrow with shake animation */
+
+.arrow {
+	rotate: 40deg;
+	position: relative;
+	animation-name: shake;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+
+/* simple shake keyframes */
+
+@keyframes shake {
+	10%,
+	90% {
+		left: -2px
+	}
+	20%,
+	80% {
+		left: 4px
+	}
+	30%,
+	50%,
+	70% {
+		left: -6
+	}
+	40%,
+	60% {
+		left: 8
+	}
+}
+
+h5 {
+	font-weight: bold;
+	font-size: 25px;
+	margin-left: 410px;
+	margin-bottom: .5rem;
+	padding-top: 5.5rem;
+}
+
+h15 {
+	font-weight: bold;
+	font-size: 25px;
+	margin-left: 426px;
+}
+
+h6 {
+	font-size: 25px;
+	margin-left: 410px;
+	margin-bottom: .5rem;
+	margin-top: -3.9em;
+	padding-left: 18rem;
+	line-height: 1.4;
+}
+
+.bottom {
+	color: black;
+}
+
+
+/* second section */
+
+.topmid {
+	color: black;
+	background-color: #f2f2f2;
+	margin-top: 2rem;
+	height: 30rem;
+}
+
+footer {
+	height: 7rem;
+	background-color: #3c3b39;
+}
+
+.icons {
+	grid-column: 2 / span 1;
+	display: grid;
+	grid-template-columns: repeat(4, 30px);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bowling {
+	margin-top: 5rem;
+	margin-left: 160px;
+	width: 2.2rem;
+	height: 2.2rem;
+	padding-right: 7rem;
+}
+
+.rockclimbing {
+	width: 2.2rem;
+	height: 2.2rem;
+	padding-right: 7rem;
+}
+
+.weight {
+	width: 2.2rem;
+	height: 2.2rem;
+	padding-right: 7rem;
+}
+
+.basketball {
+	width: 2.2rem;
+	height: 2.2rem;
+}
+
+h10 {
+	font-size: 40px;
+	font-weight: bolder;
+	font-style: italic;
+	color: #3c3b39;
+	float: left;
+	margin-left: 62rem;
+	margin-top: -21rem;
+}
+
+h11 {
+	font-size: 35px;
+	color: #26a683;
+	float: left;
+	margin-left: 62rem;
+	margin-top: -17.5rem;
+}
+
+h12 {
+	font-size: 18px;
+	color: #3c3b39;
+	float: left;
+	margin-left: 62rem;
+	margin-top: -14rem;
+	line-height: 1.8;
+}
+
+
+/* learn more button */
+
+.cbutton {
+	margin-top: -50px;
+	border-radius: 30px;
+	background-color: #26a683;
+	border: none;
+	width: 15rem;
+	height: 3rem;
+	font-size: 1.7rem;
+	color: white;
+	font-weight: bold;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+	float: right;
+	margin-right: 100px;
+}
+
+
+/* hover animation */
+
+.cbutton:hover {
+	box-shadow: 0 35px 20px -20px rgba(0, 0, 0, 0.2);
+	transform: scale(1.1) translateY(-10px);
+}
+
+.school {
+	margin-left: 9rem;
+	margin-top: 4.5rem;
+}
+
+.bottom {
+	background-image: url("images/entertainment.jpg");
+	color: black;
+	height: 32rem;
+	background-repeat: no-repeat;
+	background-position: 62rem 5.2rem;
+}
+
+h7 {
+	font-size: 40px;
+	font-weight: bolder;
+	font-style: italic;
+	color: #3c3b39;
+	float: left;
+	margin: 5.5rem 9rem;
+}
+
+h8 {
+	font-size: 35px;
+	color: #26a683;
+	float: left;
+	margin: 9.2rem -19rem;
+}
+
+h9 {
+	font-size: 18px;
+	color: #3c3b39;
+	float: left;
+	line-height: 1.8;
+	margin: 12rem -18.8rem;
+}
+
+.entertainment {
+	margin-left: 60.5rem;
+	padding-bottom: 30em;
+}
+
+
+/* learn more button */
+
+.ibutton {
+	margin-top: 380px;
+	border-radius: 30px;
+	background-color: #26a683;
+	border: none;
+	width: 15rem;
+	height: 3rem;
+	font-size: 1.7rem;
+	color: white;
+	font-weight: bold;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+	float: right;
+	margin-right: 950px;
+}
+
+
+/* hover animation */
+
+.ibutton:hover {
+	box-shadow: 0 35px 20px -20px rgba(0, 0, 0, 0.2);
+	transform: scale(1.1) translateY(-10px);
+}
+
+footer {
+	background-color: #333131;
+	margin-top: 70px;
+}
+
+.bottomarrow {
+	float: right;
+	margin-right: -53.5rem;
+	margin-top: -40px;
+}
+
+.footer {
+	background-color: #333131;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+.icon {
+	column-gap: 5px;
+}
+
+.follow {
+	grid-area: follow;
+	grid-row: 1;
+	color: #f7f7ff;
+	font-size: 24px;
+	margin-bottom: 0.6rem;
+	margin-left: 0.8rem;
+}
+
+h14 {
+	margin-left: 33.8rem;
+	margin-top: 3rem;
+	color: white;
+}
