@@ -1,108 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- external font -->
-      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
-      <link rel="icon" href="images/iconblue.png">
-      <title>Ben Hilderman</title>
-      <!-- css -->
-      <link rel="stylesheet" href="css/index.css">
-   </head>
-   <!-- body -->
-   <body>
-      <div class="header">
-         <div class="header-location">
-            <a class="active" href="/index.html">HOME</a>
-<!--             <a href="/videoediting.html">VIDEO EDITING</a> -->
-            <a href="/graphicdesign.html">GRAPHIC DESIGN</a>
-            <a href="/photography.html">PHOTOGRAPHY</a>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ben Hilderman - Video Editor</title>
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+   <!-- Header -->
+   <header class="main-header">
+      <nav>
+         <div class="nav-content">
+            <div class="nav-buttons">
+               <a href="#home" class="nav-link">HOME</a>
+               <a href="#portfolio" class="nav-link">PORTFOLIO</a>
+               <a href="#contact" class="nav-link">CONTACT</a>
+            </div>
+            <div class="sliding-text-container">
+               <span id="sliding-text" class="sliding-text">CREATIVE VIDEO EDITOR</span>
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <!-- Hero Section -->
+   <section id="home" class="hero">
+      <div class="hero-content">
+         <div class="profile-container">
+            <div class="profile-picture">
+               <img src="images/me.png" alt="Ben Hilderman">
+            </div>
+            <h1 class="hero-name">BEN HILDERMAN</h1>
+         </div>
+         <p>CRAFTING STORIES THROUGH VIDEO EDITING & DESIGN</p>
+         <a href="#footer" class="cta-button scroll-to-bottom">My Work</a>
+      </div>
+   </section>
+
+   <!-- Slider Section -->
+   <section id="slider" class="slider-section">
+      <h2>COMPARE VIDEO EDITING & THUMBNAIL DESIGN</h2>
+      <div class="slider-container">
+         <div class="slider">
+            <div class="slider-left">
+               <h3>Video Editing</h3>
+               <img src="images/video-editing-example.jpg" alt="Video Editing Example">
+               <p>Engaging, seamless transitions that bring stories to life.</p>
+            </div>
+            <div class="slider-right">
+               <h3>Thumbnail Design</h3>
+               <img src="images/thumbnail-design-example.jpg" alt="Thumbnail Design Example">
+               <p>Eye-catching designs that maximize click-through rates.</p>
+            </div>
+            <!-- Slider Handle -->
+            <div class="slider-handle"></div>
          </div>
       </div>
-      <div class="first">
-         <!-- button scrolls down to contact form -->
-         <a class="cm" href="#footer">CONTACT ME!</a>
-      </div>
-      <div>
-         <img class="me" src="/images/me.jpg" alt="me">
-      </div>
-      <div class="introduction">
-         <p>Hi, I am Ben Hilderman! I am a Video Editor, Graphic Designer and Photographer. I strive to <br> deliver high quality services while meeting tight deadlines.</p>
-      </div>
-      <div>
-         <!-- grey line for design and separation -->
-         <h1 class="line">blank space
-         </h1>
-      </div>
-      <!-- brings user to my work  -->
-      <div class="images">
-<!--          <a href="/videoediting.html">
-         <img class="ve" src="/images/videoediting.jpg" alt="videoediting">
-         <span class="grey-overlay"><span class="textoverlay">VIDEO EDITING</span></span>
-         </a> -->
-         <a href="/graphicdesign.html">
-            <img class="ve" src="/images/graphicdesign.png" alt="graphicdesign">
-            <span class="grey-overlay"><span class="textoverlay">GRAPHIC DESIGN</span></span>
-            </a>
-         <a href="/photography.html">
-         <img class="gd" src="/images/photography.jpg" alt="photography">
-         <span class="grey-overlay"><span class="textoverlay">PHOTOGRAPHY</span></span>
-         </a>
-      </div>
-      <h2>
-         CONTACT ME!
-      </h2>
-      <section class="sForm">
-         <form action="https://formsubmit.co/benjaminhilderman@gmail.com" method="POST" enctype="multipart/form-data">
-            <!-- form to contact me -->
-            <input type="hidden" name="_next" value="https://benhilderman.github.io/index.html">
-            <div class="ssform">
-               <label for="name"></label>
-               <div class="namespace">
-                  <h3>
-                     Full Name*
-                  </h3>
-                  <input type="text" name="nm" id="name" placeholder="Your Name">
-               </div>
-               <h3>
-                  Email Address*
-               </h3>
-               <div class="ssform">
-                  <label for="email"></label>
-                  <input type="text" name="add" id="email" placeholder="Email"><br>
-               </div>
-               <h3 class="msage">
-                  Message*
-               </h3>
-               <div class="ssform">
-                  <label for="message"></label>
-                  <textarea rows="5" cols="50" name="ms" id="message" placeholder="Your Message"></textarea>
-               </div>
-               <input type="hidden" name="_captcha" value="false">
-               <div class="first">
-               <button class="cm" type="submit">SUBMIT</button>
-            </div>
-            </div>
-         </form>
-      </section>
-      <footer>
-         <div class="footer" id="footer">
-            <section class="icons">
-               <h6 class="copyright">Created by Benjamin Hilderman &copy; 2021</h6>
-               <!-- social media icons + arrow pointing up -->
-               <a class="link" target="_blank" href="https://www.instagram.com/benjaminhilderman">
-                  <img class="icon" src="images/instagram.svg" width="30" height="25" alt="instagram">
-               </a>
-               <a class="link" target="_blank" href="https://www.linkedin.com/in/benjamin-hilderman-5a32b31a4/">
-                  <img class="iconn" src="images/linkedin.png" width="26" height="25" alt="linkedin">
-               </a>
-               <a class="bottomarrow" href="#top">
-                  <img src="images/arrow.png" alt="arrow" width="30" height="30">
-               </a>
-            </section>
-         </div>
-      </footer>
-   </body>
+   </section>
+
+   <!-- Footer Section -->
+   <section id="footer" class="copyright-section">
+      <p>© 2024 BEN HILDERMAN. ALL RIGHTS RESERVED.</p>
+   </section>
+
+   <!-- Include external JavaScript -->
+   <script src="js/slider.js"></script>
+</body>
 </html>
