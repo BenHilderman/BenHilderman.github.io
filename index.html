@@ -1,78 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Ben Hilderman - Video Editor</title>
-   <!-- Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-   <!-- Custom CSS -->
-   <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ben Hilderman - Video & Thumbnail Editor</title>
+  
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Inline CSS -->
+  <style>
+    /* GLOBAL STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Oswald", sans-serif;
+      margin: 0;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER / NAVBAR */
+    .main-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    .nav-content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      justify-content: space-between;
+      margin: 0 20px;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 15px;
+    }
+    .nav-link {
+      color: #f2f2f2;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #FFDA6B; /* lively yellow */
+    }
+
+    /* Sliding text (header) */
+    .sliding-text-container {
+      overflow: hidden;
+      max-width: 200px;
+    }
+    .sliding-text {
+      display: inline-block;
+      color: #FFDA6B; /* vibrant yellow */
+      white-space: nowrap;
+      animation: slideText 10s linear infinite;
+    }
+    @keyframes slideText {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* HERO SECTION */
+    #home.hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 60px; /* Offset for fixed header */
+      text-align: center;
+    }
+    .hero-content {
+      margin-top: -60px; /* Helps center vertically */
+    }
+    .profile-container {
+      margin-bottom: 1em;
+    }
+    .profile-picture img {
+      width: 150px;
+      height: auto;
+      border-radius: 50%;
+    }
+    .hero-name {
+      font-size: 2.5em;
+      margin: 0.5em 0;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #FFDA6B; /* Vibrant yellow */
+      color: #333;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #86F0D1; /* Livelier blue on hover */
+      color: #333;
+    }
+
+    /* VIDEOS SECTION (3×3 grid) + Hybrid "Delayed Preload" for iframes */
+    .videos-section {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #f4f4f4;
+    }
+    .videos-section h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .videos-section p {
+      margin-bottom: 20px;
+    }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .video-item {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #000;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .video-item:hover {
+      transform: scale(1.02);
+    }
+    .thumbnail {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+    .video-item:hover .thumbnail {
+      transform: scale(1.05);
+    }
+    .youtube-iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none; /* hidden until hover + src is set */
+    }
+    .video-item:hover .thumbnail {
+      display: none;
+    }
+    .video-item:hover .youtube-iframe {
+      display: block;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: #333;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .scroll-to-bottom {
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-   <!-- Header -->
-   <header class="main-header">
-      <nav>
-         <div class="nav-content">
-            <div class="nav-buttons">
-               <a href="#home" class="nav-link">HOME</a>
-               <a href="#portfolio" class="nav-link">PORTFOLIO</a>
-               <a href="#contact" class="nav-link">CONTACT</a>
-            </div>
-            <div class="sliding-text-container">
-               <span id="sliding-text" class="sliding-text">CREATIVE VIDEO EDITOR</span>
-            </div>
-         </div>
-      </nav>
-   </header>
-
-   <!-- Hero Section -->
-   <section id="home" class="hero">
-      <video class="background-video" autoplay loop muted playsinline>
-         <source src="images/cloudsbg.webm" type="video/webm">
-         Your browser does not support the video tag.
-      </video>
-      <div class="hero-content">
-         <!-- Profile Picture and Name -->
-         <div class="profile-container">
-            <div class="profile-picture">
-               <img src="images/me.png" alt="Ben Hilderman">
-            </div>
-            <h1 class="hero-name">BEN HILDERMAN</h1>
-         </div>
-         <p>CRAFTING STORIES THROUGH VIDEO EDITING & DESIGN</p>
-         <a href="#footer" class="cta-button scroll-to-bottom">My Work</a>
+  <!-- HEADER -->
+  <header class="main-header">
+    <nav>
+      <div class="nav-content">
+        <div class="nav-buttons">
+          <a href="#home" class="nav-link">HOME</a>
+          <a href="#videos" class="nav-link">VIDEOS</a>
+          <a href="#video-editing" class="nav-link">VIDEO EDITING</a>
+        </div>
+        <div class="sliding-text-container">
+          <span id="sliding-text" class="sliding-text">CREATIVE VIDEO EDITOR</span>
+        </div>
       </div>
-   </section>
-   
-   
-   <!-- Slider Section -->
-   <section id="slider" class="slider-section">
-      <h2>COMPARE VIDEO EDITING & THUMBNAIL DESIGN</h2>
-      <div class="slider-container">
-         <div class="slider">
-            <div class="slider-left">
-               <h3>Video Editing</h3>
-               <img src="images/video-editing-example.jpg" alt="Video Editing Example">
-               <p>Engaging, seamless transitions that bring stories to life.</p>
-            </div>
-            <div class="slider-right">
-               <h3>Thumbnail Design</h3>
-               <img src="images/thumbnail-design-example.jpg" alt="Thumbnail Design Example">
-               <p>Eye-catching designs that maximize click-through rates.</p>
-            </div>
-            <!-- Slider Handle -->
-            <div class="slider-handle"></div>
-         </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="profile-container">
+        <div class="profile-picture">
+          <img src="images/me1.png" alt="Ben Hilderman" />
+        </div>
+        <h1 class="hero-name">BEN HILDERMAN</h1>
       </div>
-   </section>
+      <p>CRAFTING STORIES THROUGH VIDEO EDITING &amp; DESIGN</p>
+      <a href="#videos" class="cta-button scroll-to-bottom">My Work</a>
+    </div>
+  </section>
 
-   <!-- Footer Section -->
-   <section id="footer" class="footer">
-      <p>© 2024 BEN HILDERMAN. ALL RIGHTS RESERVED.</p>
-   </section>
+  <!-- ORIGINAL VIDEOS SECTION -->
+  <section id="videos" class="videos-section">
+    <h2>PAST WORK</h2>
+    <p>Both thumbnail and video creation</p>
 
-   <!-- Include external JavaScript -->
-   <script src="js/slider.js"></script>
+    <div class="videos-grid">
+      <div class="video-item">
+        <img src="images/thumbnail (11).jpeg" alt="Thumbnail 11" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/LU_Lge6ql9o"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-item">
+        <img src="images/thumbnail (10).jpeg" alt="Thumbnail 10" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/aIQNbu8cjds"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-item">
+        <img src="images/thumbnail (9).jpeg" alt="Thumbnail 9" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/27oLJGQNqwc"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-item">
+        <img src="images/thumbnail (8).jpeg" alt="Thumbnail 8" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/v5pq6lgTEkM"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-item">
+        <img src="images/thumbnail (7).jpeg" alt="Thumbnail 7" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/_VCjspu9IHg"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-item">
+        <img src="images/thumbnail (6).jpeg" alt="Thumbnail 6" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/jvkeA-Fs5Nk"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-item">
+        <img src="images/thumbnail (5).jpeg" alt="Thumbnail 5" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/Btc7DcW5sOA"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-item">
+        <img src="images/thumbnail (4).jpeg" alt="Thumbnail 4" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/ti8lOZ9e1Ts"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-item">
+        <img src="images/thumbnail (3).jpg" alt="Thumbnail 3" class="thumbnail" />
+        <iframe
+          class="youtube-iframe"
+          data-src="https://www.youtube.com/embed/QePGeTyG5nw"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER SECTION -->
+  <section id="footer" class="footer">
+    <p>© 2024 BEN HILDERMAN. ALL RIGHTS RESERVED.</p>
+  </section>
+
+  <!-- INLINE JAVASCRIPT -->
+  <script>
+    // Delayed Preload (#3 Hybrid Approach)
+    window.addEventListener('load', () => {
+      // Wait 2 seconds after full window load
+      setTimeout(() => {
+        document.querySelectorAll('.youtube-iframe').forEach((frame) => {
+          const dataSrc = frame.getAttribute('data-src');
+          if (dataSrc) {
+            frame.src = dataSrc; // Assign the real src
+          }
+        });
+      }, 2000);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1) Background image for hero
+      const heroSection = document.getElementById('home');
+      if (heroSection) {
+        heroSection.style.backgroundImage = "url('images/cloudsbg.gif')";
+        heroSection.style.backgroundSize = "cover";
+        heroSection.style.backgroundPosition = "center";
+        heroSection.style.backgroundRepeat = "no-repeat";
+        heroSection.style.backgroundAttachment = "fixed";
+      }
+
+      // 2) Custom smooth scrolling
+      const scrollBtns = document.querySelectorAll('.scroll-to-bottom');
+
+      // Define the custom scroll function:
+      function customSmoothScroll(targetElement, duration) {
+        const startY = window.scrollY;
+        const targetY = targetElement.getBoundingClientRect().top + window.scrollY;
+        const distance = targetY - startY;
+        let startTime = null;
+
+        // Ease-in-out cubic function
+        function easeInOutCubic(t) {
+          return t < 0.5
+            ? 4 * t * t * t
+            : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+        }
+
+        // Animation loop
+        function animation(currentTime) {
+          if (!startTime) startTime = currentTime;
+          const elapsed = currentTime - startTime;
+          let progress = elapsed / duration;
+          if (progress > 1) progress = 1;
+
+          const easedProgress = easeInOutCubic(progress);
+          window.scrollTo(0, startY + distance * easedProgress);
+
+          if (progress < 1) {
+            requestAnimationFrame(animation);
+          }
+        }
+
+        requestAnimationFrame(animation);
+      }
+
+      // Attach click events to each .scroll-to-bottom link
+      scrollBtns.forEach((btn) => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            // Set your custom scroll duration (e.g., 2000 ms)
+            customSmoothScroll(targetElement, 2000);
+          }
+        });
+        // 4) Increase drop-shadow on divider as user nears the videos section
+        //    This will make the cloud boundary more pronounced.
+        const dividerTop = divider.offsetTop;
+        if (window.scrollY + window.innerHeight > dividerTop + 50) {
+          // If we've passed the divider by 50px
+          divider.classList.add('show-shadow');
+        } else {
+          divider.classList.remove('show-shadow');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
