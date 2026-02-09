@@ -6,7 +6,7 @@
   <meta name="description" content="Ben Hilderman — software developer specializing in iOS apps, full-stack web projects, and modern web development.">
   <meta name="theme-color" content="#050505">
   <title>Ben Hilderman</title>
-  <link rel="icon" type="image/png" href="images/icongrey.png"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -25,7 +25,7 @@
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        <a href="#resume">Resume</a>
       </div>
       <button class="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -109,7 +109,7 @@
 
       <div class="project-card reveal">
         <div class="project-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         </div>
         <div class="project-info">
           <h2>SpotterBox</h2>
@@ -181,6 +181,10 @@
           <div class="exp-role">Contractor, Media Production (Automation &amp; QA)</div>
           <div class="exp-company">Self-employed &middot; Remote</div>
           <p class="exp-desc">Drove 10M+ YouTube views by delivering reliable editing outputs using Python + FFmpeg automation. Cut turnaround to 6–12 hours with folder watchers and scripted batch jobs. Reduced revisions through scripted QA checkpoints and strict versioning conventions.</p>
+          <a href="media-production/" target="_blank" rel="noopener noreferrer" class="project-link">
+            View Media Portfolio
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
         </div>
       </div>
 
@@ -239,12 +243,33 @@
       </div>
     </section>
 
-    <div class="resume-download">
-      <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-        View Resume
-      </a>
+    <div class="divider"></div>
+
+    <!-- RESUME -->
+    <div class="section-label" id="resume">
+      <span class="section-label-ghost">Resume</span>
+      <span class="section-label-text">Resume</span>
     </div>
+
+    <section class="resume-section">
+      <div class="resume-actions reveal">
+        <button class="resume-btn" id="resume-fullscreen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          Full Screen
+        </button>
+        <a href="resume.pdf" download class="resume-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+        <button class="resume-btn" id="resume-print">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print
+        </button>
+      </div>
+      <div class="resume-embed reveal">
+        <iframe src="resume.pdf#toolbar=0&navpanes=0&zoom=page-width" class="resume-pdf" id="resume-iframe"></iframe>
+      </div>
+    </section>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -375,6 +400,17 @@
         }
       });
 
+      /* ====== RESUME CONTROLS ====== */
+      document.getElementById('resume-fullscreen').addEventListener('click', function() {
+        var iframe = document.getElementById('resume-iframe');
+        if (iframe.requestFullscreen) iframe.requestFullscreen();
+        else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+      });
+
+      document.getElementById('resume-print').addEventListener('click', function() {
+        var iframe = document.getElementById('resume-iframe');
+        iframe.contentWindow.print();
+      });
     })();
   </script>
 </body>
