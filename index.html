@@ -3,398 +3,378 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ben Hilderman - Video & Thumbnail Editor</title>
-  
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <meta name="description" content="Ben Hilderman — software developer specializing in iOS apps, full-stack web projects, and modern web development.">
+  <meta name="theme-color" content="#050505">
+  <title>Ben Hilderman — Software Developer</title>
 
-  <!-- Inline CSS -->
-  <style>
-    /* GLOBAL STYLES */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: "Oswald", sans-serif;
-      margin: 0;
-      color: #333;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HEADER / NAVBAR */
-    .main-header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #333;
-      z-index: 1000;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-    .nav-content {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      max-width: 1200px;
-      justify-content: space-between;
-      margin: 0 20px;
-    }
-    .nav-buttons {
-      display: flex;
-      gap: 15px;
-    }
-    .nav-link {
-      color: #f2f2f2;
-      margin: 0 15px;
-      transition: color 0.3s ease;
-    }
-    .nav-link:hover {
-      color: #FFDA6B; /* lively yellow */
-    }
-
-    /* Sliding text (header) */
-    .sliding-text-container {
-      overflow: hidden;
-      max-width: 200px;
-    }
-    .sliding-text {
-      display: inline-block;
-      color: #FFDA6B; /* vibrant yellow */
-      white-space: nowrap;
-      animation: slideText 10s linear infinite;
-    }
-    @keyframes slideText {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    /* HERO SECTION */
-    #home.hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 60px; /* Offset for fixed header */
-      text-align: center;
-    }
-    .hero-content {
-      margin-top: -60px; /* Helps center vertically */
-    }
-    .profile-container {
-      margin-bottom: 1em;
-    }
-    .profile-picture img {
-      width: 150px;
-      height: auto;
-      border-radius: 50%;
-    }
-    .hero-name {
-      font-size: 2.5em;
-      margin: 0.5em 0;
-    }
-    .cta-button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 20px;
-      background-color: #FFDA6B; /* Vibrant yellow */
-      color: #333;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    .cta-button:hover {
-      background-color: #86F0D1; /* Livelier blue on hover */
-      color: #333;
-    }
-
-    /* VIDEOS SECTION (3×3 grid) + Hybrid "Delayed Preload" for iframes */
-    .videos-section {
-      text-align: center;
-      padding: 50px 20px;
-      background-color: #f4f4f4;
-    }
-    .videos-section h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .videos-section p {
-      margin-bottom: 20px;
-    }
-    .videos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .video-item {
-      position: relative;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #000;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .video-item:hover {
-      transform: scale(1.02);
-    }
-    .thumbnail {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.3s ease;
-    }
-    .video-item:hover .thumbnail {
-      transform: scale(1.05);
-    }
-    .youtube-iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: none; /* hidden until hover + src is set */
-    }
-    .video-item:hover .thumbnail {
-      display: none;
-    }
-    .video-item:hover .youtube-iframe {
-      display: block;
-    }
-
-    /* FOOTER */
-    .footer {
-      background-color: #333;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 20px 0;
-    }
-    .scroll-to-bottom {
-      cursor: pointer;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="main-header">
-    <nav>
-      <div class="nav-content">
-        <div class="nav-buttons">
-          <a href="#home" class="nav-link">HOME</a>
-          <a href="#videos" class="nav-link">VIDEOS</a>
-          <a href="#video-editing" class="nav-link">VIDEO EDITING</a>
-        </div>
-        <div class="sliding-text-container">
-          <span id="sliding-text" class="sliding-text">CREATIVE VIDEO EDITOR</span>
-        </div>
+
+  <canvas id="dot-canvas"></canvas>
+
+  <div class="content">
+    <!-- NAV -->
+    <nav class="nav-pill">
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
       </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
-  </header>
+    <div class="nav-links-mobile">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+    </div>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <div class="profile-container">
-        <div class="profile-picture">
-          <img src="images/me1.png" alt="Ben Hilderman" />
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-name">Ben Hilderman</h1>
+      <p class="hero-title">Software Developer</p>
+      <p class="hero-bio">Computer Science (Honours) at Queen's University. Three-time software engineering intern at Ciena. I build iOS apps, full-stack web projects, and test automation pipelines.</p>
+      <div class="socials">
+        <a href="https://github.com/benhilderman" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/benjamin-hilderman-5a32b31a4/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:benjaminhilderman@gmail.com" class="social-icon" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PROJECTS -->
+    <div class="section-label" id="projects">
+      <span class="section-label-ghost">Projects</span>
+      <span class="section-label-text">Projects</span>
+    </div>
+
+    <section class="projects">
+      <div class="project-card reveal">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         </div>
-        <h1 class="hero-name">BEN HILDERMAN</h1>
+        <div class="project-info">
+          <h2>GymQuest</h2>
+          <p>An offline-first iOS fitness app with local persistence, optional FastAPI backend for training-load scoring, and a grounded RAG coach (FAISS + embeddings). 50+ automated tests running in CI via Fastlane.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Swift</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">FAISS/RAG</span>
+            <span class="tech-tag">XCTest/XCUITest</span>
+            <span class="tech-tag">Fastlane CI</span>
+          </div>
+          <a href="https://github.com/benhilderman/GymQuest-App" target="_blank" rel="noopener noreferrer" class="project-link">
+            View on GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
       </div>
-      <p>CRAFTING STORIES THROUGH VIDEO EDITING &amp; DESIGN</p>
-      <a href="#videos" class="cta-button scroll-to-bottom">My Work</a>
+
+      <div class="project-card reveal">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="project-info">
+          <h2>LLM Journaling App</h2>
+          <p>An LLM journaling web app with embeddings, FAISS semantic search, and grounded RAG reflections. Indexed 150 entries with 20 golden regression tests to prevent prompt/format drift.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Embeddings</span>
+            <span class="tech-tag">FAISS</span>
+            <span class="tech-tag">RAG</span>
+            <span class="tech-tag">Golden Regression Tests</span>
+          </div>
+          <a href="https://github.com/benhilderman/GymQuest-App/tree/main/ClearMindAI" target="_blank" rel="noopener noreferrer" class="project-link">
+            View on GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="project-info">
+          <h2>SpotterBox</h2>
+          <p class="project-context">QHacks 2025</p>
+          <p>An iOS AI music discovery app built in under 48 hours. Groq/Ollama LLM integration, Spotify OAuth2, swipe-to-train feedback, and persisted state with Core Data/SQLite and Keychain.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Swift</span>
+            <span class="tech-tag">Spotify OAuth2</span>
+            <span class="tech-tag">Keychain</span>
+            <span class="tech-tag">Core Data/SQLite</span>
+            <span class="tech-tag">LLM API</span>
+          </div>
+          <a href="https://github.com/benhilderman" target="_blank" rel="noopener noreferrer" class="project-link">
+            View on GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- EXPERIENCE -->
+    <div class="section-label" id="experience">
+      <span class="section-label-ghost">Experience</span>
+      <span class="section-label-text">Experience</span>
     </div>
-  </section>
 
-  <!-- ORIGINAL VIDEOS SECTION -->
-  <section id="videos" class="videos-section">
-    <h2>PAST WORK</h2>
-    <p>Both thumbnail and video creation</p>
+    <section class="experience">
+      <div class="exp-entry reveal">
+        <div class="exp-date">May — Aug 2025</div>
+        <div class="exp-details">
+          <div class="exp-role">Software Engineer Intern (Performance &amp; Test Automation)</div>
+          <div class="exp-company">Ciena &middot; Ottawa, ON</div>
+          <p class="exp-desc">3rd internship on the Release Engineering team. Implemented release-blocking quality gates in Jenkins using Playwright, Angular TestBed/Jasmine, and Spring Test/Mockito for a platform supporting $1B+ budgets. Enforced PR validation across 200+ source files. Hardened E2E tests with stable locators and isolated test data.</p>
+        </div>
+      </div>
 
-    <div class="videos-grid">
-      <div class="video-item">
-        <img src="images/thumbnail (11).jpeg" alt="Thumbnail 11" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/LU_Lge6ql9o"
-          allowfullscreen>
-        </iframe>
+      <div class="exp-entry reveal">
+        <div class="exp-date">May — Aug 2024</div>
+        <div class="exp-details">
+          <div class="exp-role">Software Engineer Intern (DevOps)</div>
+          <div class="exp-company">Ciena &middot; Ottawa, ON</div>
+          <p class="exp-desc">2nd internship on the Release Engineering team. Prevented license exhaustion and reclaimed 500+ Perforce tokens (~$10K/yr) by automating license hygiene with Python/Bash cron. Modularized admin logic and migrated legacy scripts from Perl to Python.</p>
+        </div>
       </div>
-      <div class="video-item">
-        <img src="images/thumbnail (10).jpeg" alt="Thumbnail 10" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/aIQNbu8cjds"
-          allowfullscreen>
-        </iframe>
+
+      <div class="exp-entry reveal">
+        <div class="exp-date">May — Aug 2023</div>
+        <div class="exp-details">
+          <div class="exp-role">Software Engineer Intern (DevOps)</div>
+          <div class="exp-company">Ciena &middot; Ottawa, ON</div>
+          <p class="exp-desc">1st internship on the Release Engineering team. Built Linux-hosted workflow automation for Perforce user analysis using Python/Perl/Bash. Accelerated CI issue resolution by reproducing failures using Jenkins logs and internal telemetry.</p>
+        </div>
       </div>
-      <div class="video-item">
-        <img src="images/thumbnail (9).jpeg" alt="Thumbnail 9" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/27oLJGQNqwc"
-          allowfullscreen>
-        </iframe>
+
+      <div class="exp-entry reveal">
+        <div class="exp-date">Jan — Apr 2022</div>
+        <div class="exp-details">
+          <div class="exp-role">Full Stack Web Developer</div>
+          <div class="exp-company">The County Cooperage &middot; Ottawa, ON</div>
+          <p class="exp-desc">Improved Shopify storefront performance by refactoring Liquid theme architecture and optimizing JS/CSS delivery. Used Google Analytics and Shopify analytics to prioritize high-impact updates. Contributed to a ~35% increase in sales through iterative, analytics-driven releases.</p>
+        </div>
       </div>
-      <div class="video-item">
-        <img src="images/thumbnail (8).jpeg" alt="Thumbnail 8" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/v5pq6lgTEkM"
-          allowfullscreen>
-        </iframe>
+
+      <div class="exp-entry reveal">
+        <div class="exp-date">Oct 2020 — Apr 2022</div>
+        <div class="exp-details">
+          <div class="exp-role">Contractor, Media Production (Automation &amp; QA)</div>
+          <div class="exp-company">Self-employed &middot; Remote</div>
+          <p class="exp-desc">Drove 10M+ YouTube views by delivering reliable editing outputs using Python + FFmpeg automation. Cut turnaround to 6–12 hours with folder watchers and scripted batch jobs. Reduced revisions through scripted QA checkpoints and strict versioning conventions.</p>
+        </div>
       </div>
-      <div class="video-item">
-        <img src="images/thumbnail (7).jpeg" alt="Thumbnail 7" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/_VCjspu9IHg"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="video-item">
-        <img src="images/thumbnail (6).jpeg" alt="Thumbnail 6" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/jvkeA-Fs5Nk"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="video-item">
-        <img src="images/thumbnail (5).jpeg" alt="Thumbnail 5" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/Btc7DcW5sOA"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="video-item">
-        <img src="images/thumbnail (4).jpeg" alt="Thumbnail 4" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/ti8lOZ9e1Ts"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="video-item">
-        <img src="images/thumbnail (3).jpg" alt="Thumbnail 3" class="thumbnail" />
-        <iframe
-          class="youtube-iframe"
-          data-src="https://www.youtube.com/embed/QePGeTyG5nw"
-          allowfullscreen>
-        </iframe>
-      </div>
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- EDUCATION -->
+    <div class="section-label" id="education">
+      <span class="section-label-ghost">Education</span>
+      <span class="section-label-text">Education</span>
     </div>
-  </section>
 
+    <section class="experience">
+      <div class="exp-entry reveal">
+        <div class="exp-date">Sep 2022 — Apr 2026</div>
+        <div class="exp-details">
+          <div class="exp-role">Bachelor of Computer Science (Honours)</div>
+          <div class="exp-company">Queen's University</div>
+          <p class="exp-desc">GPA 3.72 (Dean's Honours List), Varsity Tennis. Coursework: Operating Systems (Java), System Level Programming (C/Linux), Software Quality Assurance, Database Management Systems (SQL/DDL), Formal Methods in Software Engineering.</p>
+        </div>
+      </div>
 
-  <!-- FOOTER SECTION -->
-  <section id="footer" class="footer">
-    <p>© 2024 BEN HILDERMAN. ALL RIGHTS RESERVED.</p>
-  </section>
+      <div class="exp-entry reveal">
+        <div class="exp-date">Sep 2020 — Aug 2022</div>
+        <div class="exp-details">
+          <div class="exp-role">College Diploma, Interactive Media Design Co-op</div>
+          <div class="exp-company">Algonquin College</div>
+          <p class="exp-desc">GPA 3.74 (Dean's Honours List). Coursework: Content Management Systems, Web Development, Responsive Web Design.</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- INLINE JAVASCRIPT -->
+    <div class="divider"></div>
+
+    <!-- SKILLS -->
+    <div class="section-label" id="skills">
+      <span class="section-label-ghost">Skills</span>
+      <span class="section-label-text">Skills</span>
+    </div>
+
+    <section class="skills-section">
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <h3>Languages</h3>
+          <p>Python, TypeScript/JavaScript, Java, Go, C/C++, Bash, Swift</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Dev / Infra</h3>
+          <p>Linux, Jenkins, Git/Bitbucket, Angular 16+, Spring Boot/Hibernate, REST/Microservices, Unit Tests</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>AI / Data</h3>
+          <p>PostgreSQL, SQL/DDL, PyTorch, OpenAI/Groq, FAISS/RAG</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="resume-download">
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        View Resume
+      </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2026 Ben Hilderman</p>
+    </footer>
+  </div>
+
   <script>
-    // Delayed Preload (#3 Hybrid Approach)
-    window.addEventListener('load', () => {
-      // Wait 2 seconds after full window load
-      setTimeout(() => {
-        document.querySelectorAll('.youtube-iframe').forEach((frame) => {
-          const dataSrc = frame.getAttribute('data-src');
-          if (dataSrc) {
-            frame.src = dataSrc; // Assign the real src
-          }
-        });
-      }, 0);
-    });
+    (function() {
+      /* ====== INTERACTIVE DOT GRID ====== */
+      const canvas = document.getElementById('dot-canvas');
+      const ctx = canvas.getContext('2d');
+      const mouse = { x: -1000, y: -1000 };
+      const spacing = 28;
+      const baseAlpha = 0.12;
+      const baseRadius = 0.8;
+      const influence = 140;
+      const influenceSq = influence * influence;
+      let cols, rows, w, h;
 
-    document.addEventListener('DOMContentLoaded', function() {
-      // 1) Background image for hero
-      const heroSection = document.getElementById('home');
-      if (heroSection) {
-        heroSection.style.backgroundImage = "url('images/cloudsbg.gif')";
-        heroSection.style.backgroundSize = "cover";
-        heroSection.style.backgroundPosition = "center";
-        heroSection.style.backgroundRepeat = "no-repeat";
-        heroSection.style.backgroundAttachment = "fixed";
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        cols = Math.ceil(w / spacing) + 1;
+        rows = Math.ceil(h / spacing) + 1;
       }
 
-      // 2) Custom smooth scrolling
-      const scrollBtns = document.querySelectorAll('.scroll-to-bottom');
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
 
-      // Define the custom scroll function:
-      function customSmoothScroll(targetElement, duration) {
-        const startY = window.scrollY;
-        const targetY = targetElement.getBoundingClientRect().top + window.scrollY;
-        const distance = targetY - startY;
-        let startTime = null;
+        // Batch all non-influenced dots into one path
+        const basePath = new Path2D();
 
-        // Ease-in-out cubic function
-        function easeInOutCubic(t) {
-          return t < 0.5
-            ? 4 * t * t * t
-            : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-        }
+        for (let i = 0; i < cols; i++) {
+          for (let j = 0; j < rows; j++) {
+            const x = i * spacing;
+            const y = j * spacing;
+            const dx = mouse.x - x;
+            const dy = mouse.y - y;
+            const distSq = dx * dx + dy * dy;
 
-        // Animation loop
-        function animation(currentTime) {
-          if (!startTime) startTime = currentTime;
-          const elapsed = currentTime - startTime;
-          let progress = elapsed / duration;
-          if (progress > 1) progress = 1;
-
-          const easedProgress = easeInOutCubic(progress);
-          window.scrollTo(0, startY + distance * easedProgress);
-
-          if (progress < 1) {
-            requestAnimationFrame(animation);
+            if (distSq >= influenceSq) {
+              basePath.moveTo(x + baseRadius, y);
+              basePath.arc(x, y, baseRadius, 0, Math.PI * 2);
+            } else {
+              const dist = Math.sqrt(distSq);
+              const t = 1 - dist / influence;
+              const ease = t * t;
+              const r = baseRadius + ease * 3;
+              const a = baseAlpha + ease * 0.55;
+              ctx.beginPath();
+              ctx.arc(x, y, r, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(100, 216, 203, ' + a + ')';
+              ctx.fill();
+            }
           }
         }
 
-        requestAnimationFrame(animation);
+        ctx.fillStyle = 'rgba(100, 216, 203, ' + baseAlpha + ')';
+        ctx.fill(basePath);
+
+        requestAnimationFrame(draw);
       }
 
-      // Attach click events to each .scroll-to-bottom link
-      scrollBtns.forEach((btn) => {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href').substring(1);
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            // Set your custom scroll duration (e.g., 2000 ms)
-            customSmoothScroll(targetElement, 2000);
+      window.addEventListener('resize', resize);
+      window.addEventListener('mousemove', function(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+      window.addEventListener('mouseout', function() {
+        mouse.x = -1000;
+        mouse.y = -1000;
+      });
+      resize();
+      draw();
+
+      /* ====== SCROLL REVEAL ====== */
+      var revealObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
           }
         });
-        // 4) Increase drop-shadow on divider as user nears the videos section
-        //    This will make the cloud boundary more pronounced.
-        const dividerTop = divider.offsetTop;
-        if (window.scrollY + window.innerHeight > dividerTop + 50) {
-          // If we've passed the divider by 50px
-          divider.classList.add('show-shadow');
-        } else {
-          divider.classList.remove('show-shadow');
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        revealObs.observe(el);
+      });
+
+      /* ====== NAV SCROLL SPY ====== */
+      var sections = document.querySelectorAll('.section-label[id]');
+      var navLinks = document.querySelectorAll('.nav-pill .nav-links a');
+
+      var spyObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.getAttribute('id');
+            navLinks.forEach(function(link) {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-80px 0px -60% 0px' });
+
+      sections.forEach(function(section) {
+        spyObs.observe(section);
+      });
+
+      /* ====== MOBILE NAV ====== */
+      var toggle = document.querySelector('.nav-toggle');
+      var mobileNav = document.querySelector('.nav-links-mobile');
+
+      toggle.addEventListener('click', function() {
+        mobileNav.classList.toggle('open');
+      });
+
+      // Close mobile nav on link click
+      mobileNav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileNav.classList.remove('open');
+        });
+      });
+
+      // Close mobile nav on outside click
+      document.addEventListener('click', function(e) {
+        if (!mobileNav.contains(e.target) && !toggle.contains(e.target)) {
+          mobileNav.classList.remove('open');
         }
       });
-    });
+
+    })();
   </script>
 </body>
 </html>
