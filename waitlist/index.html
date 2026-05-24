@@ -49,11 +49,11 @@ input::placeholder{color:rgba(255,255,255,0.26);}
   <div id="form-view">
     <h1>Train together.<br><span class="g">Even apart.</span></h1>
     <p class="sub">The app that keeps your training partnership alive, no matter the distance or schedule. Be the first to know when we launch.</p>
-    <form id="waitlist-form" action="https://formsubmit.co/benjaminhilderman@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New CoLift waitlist signup">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://benhilderman.github.io/waitlist/?joined=1">
+    <form id="waitlist-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="73b9dd4c-6ebd-483e-8e64-a8d6485d0de5">
+      <input type="hidden" name="subject" value="New CoLift waitlist signup">
+      <input type="hidden" name="from_name" value="CoLift Waitlist">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="field"><input type="text" name="name" id="name" placeholder="Your name" autocomplete="given-name" required /></div>
       <div class="field"><input type="email" name="email" id="email" placeholder="Your email" autocomplete="email" required /></div>
       <div class="err" id="err"></div>
@@ -82,35 +82,45 @@ input::placeholder{color:rgba(255,255,255,0.26);}
 </div>
 
 <script>
-// Signups are delivered via FormSubmit (no backend — works on static GitHub Pages).
-// IMPORTANT: FormSubmit needs a one-time activation. The FIRST real submission shows
-// a FormSubmit confirmation page and emails an activation link to the address in the
-// form's `action`. Click that link once; every submission after redirects straight
-// back here (?joined=1) and shows the success state — no FormSubmit page in between.
-// To hide the address from scrapers, activate once, then replace the email in `action`
-// with the random alias FormSubmit emails you (e.g. .../formsubmit.co/abc123def456).
+// Signups are delivered via Web3Forms (no backend — works on static GitHub Pages).
+// The access key in the form is public/client-safe by design; submissions arrive at the
+// email tied to it (benjaminhilderman@gmail.com). No activation step — works instantly.
+// Dashboard: https://web3forms.com  •  Docs: https://docs.web3forms.com
 (function () {
   var form = document.getElementById('waitlist-form');
   var err  = document.getElementById('err');
   var btn  = document.getElementById('btn');
 
   form.addEventListener('submit', function (e) {
+    e.preventDefault();
     var name  = document.getElementById('name').value.trim();
     var email = document.getElementById('email').value.trim();
-    if (!name) { e.preventDefault(); err.textContent = 'Please enter your name.'; return; }
+    if (!name) { err.textContent = 'Please enter your name.'; return; }
     if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
-      e.preventDefault(); err.textContent = 'Please enter a valid email.'; return;
+      err.textContent = 'Please enter a valid email.'; return;
     }
     err.textContent = '';
     btn.disabled = true;
     btn.textContent = 'Saving...';
-    // valid → let the form POST to FormSubmit, which redirects back to ?joined=1
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (data) { if (data && data.success) { showSuccess(); } else { fail(); } })
+    .catch(fail);
   });
 
-  // FormSubmit redirected back after a successful signup → show the success view.
-  if (new URLSearchParams(window.location.search).has('joined')) {
+  function showSuccess() {
     document.getElementById('form-view').style.display = 'none';
     document.getElementById('success-view').style.display = 'block';
+  }
+  function fail() {
+    err.textContent = 'Something went wrong. Please try again.';
+    btn.disabled = false;
+    btn.textContent = 'Get Early Access';
   }
 })();
 </script>
