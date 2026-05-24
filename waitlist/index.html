@@ -49,10 +49,16 @@ input::placeholder{color:rgba(255,255,255,0.26);}
   <div id="form-view">
     <h1>Train together.<br><span class="g">Even apart.</span></h1>
     <p class="sub">The app that keeps your training partnership alive, no matter the distance or schedule. Be the first to know when we launch.</p>
-    <div class="field"><input type="text" id="name" placeholder="Your name" autocomplete="given-name" /></div>
-    <div class="field"><input type="email" id="email" placeholder="Your email" autocomplete="email" /></div>
-    <div class="err" id="err"></div>
-    <button class="btn" id="btn" onclick="joinWaitlist()">Get Early Access</button>
+    <form id="waitlist-form" action="https://formsubmit.co/benjaminhilderman@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New CoLift waitlist signup">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://benhilderman.github.io/waitlist/?joined=1">
+      <div class="field"><input type="text" name="name" id="name" placeholder="Your name" autocomplete="given-name" required /></div>
+      <div class="field"><input type="email" name="email" id="email" placeholder="Your email" autocomplete="email" required /></div>
+      <div class="err" id="err"></div>
+      <button type="submit" class="btn" id="btn">Get Early Access</button>
+    </form>
     <div class="pills">
       <div class="pill">REPLAY</div>
       <div class="pill">JAM</div>
@@ -76,66 +82,37 @@ input::placeholder{color:rgba(255,255,255,0.26);}
 </div>
 
 <script>
-// Signups are delivered via FormSubmit (no backend needed — works on static GitHub Pages).
-// IMPORTANT: the first submission triggers a one-time activation email to the address
-// below. Click the link in it once and all future signups arrive automatically.
-// To hide this address from scrapers, activate once, then swap in the random alias
-// FormSubmit emails you (e.g. https://formsubmit.co/ajax/abc123def456).
-const ENDPOINT = "https://formsubmit.co/ajax/benjaminhilderman@gmail.com";
+// Signups are delivered via FormSubmit (no backend — works on static GitHub Pages).
+// IMPORTANT: FormSubmit needs a one-time activation. The FIRST real submission shows
+// a FormSubmit confirmation page and emails an activation link to the address in the
+// form's `action`. Click that link once; every submission after redirects straight
+// back here (?joined=1) and shows the success state — no FormSubmit page in between.
+// To hide the address from scrapers, activate once, then replace the email in `action`
+// with the random alias FormSubmit emails you (e.g. .../formsubmit.co/abc123def456).
+(function () {
+  var form = document.getElementById('waitlist-form');
+  var err  = document.getElementById('err');
+  var btn  = document.getElementById('btn');
 
-function joinWaitlist() {
-  const name  = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const err   = document.getElementById('err');
-  const btn   = document.getElementById('btn');
-
-  if (!name)  { err.textContent = 'Please enter your name.'; return; }
-  if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
-    err.textContent = 'Please enter a valid email.'; return;
-  }
-  err.textContent = '';
-  btn.disabled = true;
-  btn.textContent = 'Saving...';
-
-  fetch(ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      name: name,
-      email: email,
-      _subject: 'New CoLift waitlist signup',
-      _template: 'table',
-      _captcha: 'false'
-    })
-  })
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    if (data && (data.success === true || data.success === 'true')) {
-      showSuccess();
-    } else {
-      fail();
+  form.addEventListener('submit', function (e) {
+    var name  = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    if (!name) { e.preventDefault(); err.textContent = 'Please enter your name.'; return; }
+    if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+      e.preventDefault(); err.textContent = 'Please enter a valid email.'; return;
     }
-  })
-  .catch(fail);
-}
-
-function showSuccess() {
-  document.getElementById('form-view').style.display = 'none';
-  document.getElementById('success-view').style.display = 'block';
-}
-function fail() {
-  const btn = document.getElementById('btn');
-  document.getElementById('err').textContent = 'Something went wrong. Please try again.';
-  btn.disabled = false;
-  btn.textContent = 'Get Early Access';
-}
-
-// Submit on Enter from either field
-['name', 'email'].forEach(function(id) {
-  document.getElementById(id).addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') { e.preventDefault(); joinWaitlist(); }
+    err.textContent = '';
+    btn.disabled = true;
+    btn.textContent = 'Saving...';
+    // valid → let the form POST to FormSubmit, which redirects back to ?joined=1
   });
-});
+
+  // FormSubmit redirected back after a successful signup → show the success view.
+  if (new URLSearchParams(window.location.search).has('joined')) {
+    document.getElementById('form-view').style.display = 'none';
+    document.getElementById('success-view').style.display = 'block';
+  }
+})();
 </script>
 </body>
 </html>
