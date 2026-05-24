@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CoLift — Early Access</title>
+<meta name="description" content="CoLift keeps your training partnership alive — no matter the distance or schedule. Join the waitlist for early access.">
+<meta name="theme-color" content="#0C0C10">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="CoLift — Early Access">
+<meta property="og:description" content="Train together. Even apart. Join the waitlist for early access.">
+<meta property="og:url" content="https://benhilderman.github.io/waitlist/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CoLift — Early Access">
+<meta name="twitter:description" content="Train together. Even apart. Join the waitlist for early access.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@700;800;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:#0C0C10;color:#fff;font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 20px;}
+.logo{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900;letter-spacing:0.5px;background:linear-gradient(135deg,#5B3FFF,#9B3BFF,#FF4ED4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:36px;}
+.card{width:100%;max-width:460px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:24px;padding:44px 40px;}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(38px,8vw,54px);font-weight:900;line-height:1.05;letter-spacing:0.5px;color:#fff;margin-bottom:10px;}
+h1 .g{background:linear-gradient(135deg,#5B3FFF,#9B3BFF,#FF4ED4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sub{font-size:15px;color:rgba(255,255,255,0.42);line-height:1.65;margin-bottom:28px;}
+.field{margin-bottom:10px;}
+input{width:100%;height:50px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;color:#fff;font-size:15px;font-family:'Barlow',sans-serif;padding:0 16px;outline:none;transition:border-color 0.2s;}
+input:focus{border-color:rgba(107,63,255,0.65);}
+input::placeholder{color:rgba(255,255,255,0.26);}
+.btn{width:100%;height:50px;background:linear-gradient(180deg,#6B3FFF,#9B3BFF 55%,#FF4ED4);border:none;border-radius:12px;color:#fff;font-size:16px;font-weight:700;font-family:'Barlow',sans-serif;cursor:pointer;margin-top:6px;letter-spacing:0.2px;transition:opacity 0.2s;}
+.btn:hover{opacity:0.88;}
+.btn:disabled{opacity:0.45;cursor:default;}
+.err{font-size:12px;color:rgba(255,100,100,0.80);margin-top:8px;min-height:16px;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.06);}
+.pill{background:rgba(107,63,255,0.12);border:1px solid rgba(107,63,255,0.28);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);}
+.success{text-align:center;padding:8px 0 4px;}
+.success .icon{font-size:44px;margin-bottom:16px;}
+.success h2{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;letter-spacing:0.5px;margin-bottom:10px;}
+.success p{font-size:14px;color:rgba(255,255,255,0.42);line-height:1.65;}
+</style>
+</head>
+<body>
+<div class="logo">CoLift</div>
+<div class="card">
+
+  <div id="form-view">
+    <h1>Train together.<br><span class="g">Even apart.</span></h1>
+    <p class="sub">The app that keeps your training partnership alive, no matter the distance or schedule. Be the first to know when we launch.</p>
+    <div class="field"><input type="text" id="name" placeholder="Your name" autocomplete="given-name" /></div>
+    <div class="field"><input type="email" id="email" placeholder="Your email" autocomplete="email" /></div>
+    <div class="err" id="err"></div>
+    <button class="btn" id="btn" onclick="joinWaitlist()">Get Early Access</button>
+    <div class="pills">
+      <div class="pill">REPLAY</div>
+      <div class="pill">JAM</div>
+      <div class="pill">Smart Home</div>
+      <div class="pill">Shared Streaks</div>
+      <div class="pill">Run It Back</div>
+    </div>
+  </div>
+
+  <div id="success-view" class="success" style="display:none">
+    <div class="icon">🎉</div>
+    <h2>You're on the list.</h2>
+    <p>We'll reach out when CoLift launches.<br>People who signed up first get in first.</p>
+    <div class="pills" style="justify-content:center;margin-top:24px">
+      <div class="pill">REPLAY</div>
+      <div class="pill">JAM</div>
+      <div class="pill">Smart Home</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Signups are delivered via FormSubmit (no backend needed — works on static GitHub Pages).
+// IMPORTANT: the first submission triggers a one-time activation email to the address
+// below. Click the link in it once and all future signups arrive automatically.
+// To hide this address from scrapers, activate once, then swap in the random alias
+// FormSubmit emails you (e.g. https://formsubmit.co/ajax/abc123def456).
+const ENDPOINT = "https://formsubmit.co/ajax/benjaminhilderman@gmail.com";
+
+function joinWaitlist() {
+  const name  = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const err   = document.getElementById('err');
+  const btn   = document.getElementById('btn');
+
+  if (!name)  { err.textContent = 'Please enter your name.'; return; }
+  if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+    err.textContent = 'Please enter a valid email.'; return;
+  }
+  err.textContent = '';
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  fetch(ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      _subject: 'New CoLift waitlist signup',
+      _template: 'table',
+      _captcha: 'false'
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data && (data.success === true || data.success === 'true')) {
+      showSuccess();
+    } else {
+      fail();
+    }
+  })
+  .catch(fail);
+}
+
+function showSuccess() {
+  document.getElementById('form-view').style.display = 'none';
+  document.getElementById('success-view').style.display = 'block';
+}
+function fail() {
+  const btn = document.getElementById('btn');
+  document.getElementById('err').textContent = 'Something went wrong. Please try again.';
+  btn.disabled = false;
+  btn.textContent = 'Get Early Access';
+}
+
+// Submit on Enter from either field
+['name', 'email'].forEach(function(id) {
+  document.getElementById(id).addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); joinWaitlist(); }
+  });
+});
+</script>
+</body>
+</html>
